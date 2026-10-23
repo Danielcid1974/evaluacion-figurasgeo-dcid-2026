@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Daniel Cid B.</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <!-- selector: dispara onFigureChange al elegir -->
+    <ion-item>
+      <ion-select
+        label="Figuras Geométricas"
+        placeholder="Escoja una figura geométrica"
+        (ionChange)="onFigureChange($event)"
+      >
+        <ion-select-option value="circle">Círculo</ion-select-option>
+        <ion-select-option value="triangle">Triángulo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- solo se muestra el componente de la figura elegida -->
+    <!-- CÍRCULO -->
+    <app-circulo *ngIf="selectedFigure === 'circle'"></app-circulo>
+
+    <!-- TRIÁNGULO -->
+    <app-triangulo *ngIf="selectedFigure === 'triangle'"></app-triangulo>
+
+  </ion-list>
+</ion-content>
